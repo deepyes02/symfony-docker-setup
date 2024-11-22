@@ -41,19 +41,5 @@ services:
       - "3000:80"
     volumes:
       - ./phpmyadmin:/sessions
-  wpcli:
-    image : wordpress:cli
-    user: 1000:1000
-    command: tail -f /dev/null
-    container_name : cli
-    volumes:
-      - ./wordpress:/var/www/html
-    depends_on:
-      - wordpress
-    environment:
-      - WORDPRESS_DB_HOST
-      - WORDPRESS_DB_USER
-      - WORDPRESS_DB_NAME
-      - WORDPRESS_DB_PASSWORD
 volumes:
   db_data:
