@@ -20,9 +20,12 @@ services:
       - '3307:3307'
   php:
     container_name: php
-    image: php:8.2-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
-      - ./public:/var/www/html
+      - ./server:/var/www/html
+      - ./conf/000-default.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - 80:80
     restart: always
