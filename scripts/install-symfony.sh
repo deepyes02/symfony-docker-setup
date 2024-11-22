@@ -1,10 +1,11 @@
 #!/bin/bash
-if [! -f /var/www/html/public/index.php]; then
-	echo "No symfony project found, so now installing ... "
-	composer create-project symfony/skeleton . || exit 1
-	echo "Symfony installed successfully. "
+if [ -z "$(ls -A /var/www/html)"]; then
+	echo "copying symfony files to /var/www/html"
+	cp -R /tmp/public/* /var/www/html/
+	chown -R www-data:www-data /var/www/html/
+	echo "done"
 else
-	echo "Symfony project already exists, skipping installation"
+	echo "Symfony project already exists, skipping copying"
 fi
 
 #apache
