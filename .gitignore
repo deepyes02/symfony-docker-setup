@@ -3,7 +3,9 @@ wordpress/
 var/
 phpmyadmin/
 vendor/
-
+clean.sh	
+build.sh
+rebuild.sh
 
 
 #Symfony specific
