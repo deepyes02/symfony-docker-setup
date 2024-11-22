@@ -18,19 +18,16 @@ services:
       - 33070
     ports:
       - '3307:3307'
-  wordpress:
-    container_name: wordpress
-    image: wordpress:php8.2
+  php:
+    container_name: php
+    image: php:8.2-apache
     volumes:
-      - ./wordpress:/var/www/html:delegated
+      - ./public:/var/www/html
     ports:
       - 80:80
     restart: always
     environment:
-      - WORDPRESS_DB_HOST
-      - WORDPRESS_DB_USER
-      - WORDPRESS_DB_PASSWORD
-      - WORDPRESS_DB_NAME
+      - APACHE_DOCUMENT_ROOT
   phpmyadmin:
     image : arm64v8/phpmyadmin
     depends_on:
