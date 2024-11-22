@@ -1,5 +1,11 @@
+
+
+
+1. rename .env.example to .env
+
+
+
 ## Install symfony via cli ##
-chmod +x scripts/install-symfony.sh 
 ```bash
 ##first time or when you need to rebuild
 docker compose up --build -d
