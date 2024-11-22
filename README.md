@@ -45,6 +45,47 @@ composer
 symfony 
 ```
 
+Since this is a barebone symfony framework, here's two package we needed to install in order for the routing to work. 
+1. Create server/config/routes/attributes.yaml and fill it up with the info
+```yaml
+#config/routes/attributes.yaml
+controllers:
+  resource:
+    path: ../../src/Controller
+    namespace: App\Controller
+  type: attribute
+
+kernel:
+  resource: App\Kernel
+  type: attribute
+```
+
+2. Controller
+server/src/Controller/BlogController.php
+```php
+namespace App\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class BlogController{
+	#[Route('/', name: 'home_page')]
+	public function list(): Response {
+		return new Response('<html>Hello world</html>');
+	}
+}
+```
+
+```bash
+composer require symfony/framework-bundle symfony/routing
+```
+
+open the browser now :  
+
+![alt text](image-1.png)
+
+## Murky waters ahead, you are on your own ##
+
 
 
 
